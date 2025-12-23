@@ -12,12 +12,18 @@ a{
 }
 
 :root {
-    --primary-color: #d4af37; /* Soft gold accent */
-    --bg-light: #fbeee6;
-    --bg-lighter: #fff7f0;
-    --text-dark: #333;
-    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --primary-color: unset;
+    --prymary-color2: unset;
+    --bg-light: unset;
+    --bg-lighter: unset;
+    --text-dark: unset;
+    --shadow: unset;
+    --btn-hover: unset;
+    --zoom-glow: unset;
+    --abtb-bg: unset;
+    --puo: unset;
 }
+
 
 * {
     font-family: cinzel;
@@ -101,7 +107,7 @@ img{
     align-items: center;
     padding: 8px 15px;
     text-decoration: none;
-    color: #333;
+    color: var(--text-dark);
     font-size: 14px;
 }
 
@@ -123,10 +129,6 @@ header {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('img/banner.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,6 +136,36 @@ header {
     text-align: center;
     box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
     padding: 20px;
+    overflow: hidden; /* Hide overflow from slides */
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind nav and overlay */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 nav {
@@ -146,7 +178,7 @@ nav {
     align-items: center;
     padding: 0 50px;
     background-color: rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 2;
 }
 
 .hamburger-menu {
@@ -252,9 +284,17 @@ nav .nav-links a:hover::after {
 }
 
 header .overlay {
-    animation: fadeIn 1s ease-in-out;
-    color: white;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 header .overlay h2 {
@@ -317,7 +357,7 @@ nav .nav-links a::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), #ffd700, var(--primary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--prymary-color2), var(--primary-color));
     transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -327,7 +367,7 @@ nav .nav-links a:hover::after {
 
 nav .nav-links a:hover {
     transform: translateY(-2px);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    text-shadow: 0 0 10px var(--prymary-color);
 }
 
 /* Enhanced Hamburger Menu */
@@ -342,7 +382,7 @@ nav .nav-links a:hover {
 
 .hamburger-menu.active .bar:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
-    background: linear-gradient(90deg, var(--primary-color), #ffd700);
+    background: linear-gradient(90deg, var(--primary-color), var(--prymary-color2));
 }
 
 .hamburger-menu.active .bar:nth-child(2) {
@@ -351,7 +391,7 @@ nav .nav-links a:hover {
 
 .hamburger-menu.active .bar:nth-child(3) {
     transform: translateY(-10px) rotate(-45deg);
-    background: linear-gradient(90deg, var(--primary-color), #ffd700);
+    background: linear-gradient(90deg, var(--primary-color), var(--prymary-color2));
 }
 
 /* Parallax Background Animation removed */
@@ -531,15 +571,15 @@ header .overlay h5 {
 @keyframes zoomGlow {
     0% {
         transform: scale(1);
-        filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+        filter: drop-shadow(0 0 0px var(--puo));
     }
     50% {
         transform: scale(1.05);
-        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+        filter: drop-shadow(0 0 20px var(--prymary-color));
     }
     100% {
         transform: scale(1.02);
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+        filter: drop-shadow(0 0 10px var(--zoom-glow));
     }
 }
 
@@ -586,10 +626,10 @@ header .overlay h5 {
 /* 14. GLOW PULSE EFFECT */
 @keyframes glowPulse {
     0%, 100% {
-        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+        filter: drop-shadow(0 0 5px var(--zoom-glow));
     }
     50% {
-        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+        filter: drop-shadow(0 0 20px var(--primary-color));
     }
 }
 
@@ -597,7 +637,7 @@ header .overlay h5 {
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(212, 175, 55, 0.6);
+    background: var(--zoom-glow);
     transform: scale(0);
     animation: ripple 0.6s linear;
     pointer-events: none;
@@ -751,7 +791,7 @@ header .overlay h5 {
 /*aici vine tot pu about the brand*/
 
 .abtb div{
-    background-color: rgb(251, 238, 230);
+    background-color: var(--bg-light);
     padding: 1%;
     flex: 1;
     text-align: center;
@@ -768,7 +808,7 @@ header .overlay h5 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background-color: rgb(215, 191, 176);
+    background-color: var(--abtb-bg);
     background-size: 100px 100px, 20px 20px;
     transform: rotate(45deg);
     animation: knitPattern 4s ease-in-out infinite;
@@ -787,7 +827,7 @@ header .overlay h5 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, var(--puo), transparent);
     transform: rotate(45deg);
     animation: knitPattern 3s ease-in-out infinite;
     opacity: 0;
@@ -829,7 +869,7 @@ header .overlay h5 {
     column-width: 1fr;
     height: auto;
     min-height: auto;
-    background: linear-gradient(135deg, #fbeee6 0%, #fff7f0 100%);
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
 }
 
 @media (max-width: 900px){
@@ -838,7 +878,7 @@ header .overlay h5 {
         flex-direction: column;
         gap: 20px;
         height: auto;
-        padding: 5%;
+    padding: 5%;
     }
     .abtb div{
         padding-inline: 30px;
@@ -848,7 +888,7 @@ header .overlay h5 {
 /*aici e tot pu about designer*/
 
 .abtd{
-    background-color: rgb(251, 238, 230);
+    background-color: var(--bg-light);
     padding: 80px 5%;
     max-width: 100%;
     margin: auto;
@@ -865,7 +905,7 @@ button{
 }
 
 button:hover{
-    background-color: #ffd4ba;
+    background-color: var(--btn-hover);
 }
 
 button a{
@@ -896,7 +936,7 @@ button a{
 /*gallery*/
 
 .gallery{
-    background: linear-gradient(135deg, var(--bg-light) 0%, #fff7f0 100%);
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -915,7 +955,7 @@ button a{
 .gallery h1 {
     margin-bottom: 20px;
     animation: bounceIn 1s ease-out;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px var(--shadow);
     position: relative;
 }
 
@@ -938,7 +978,7 @@ button a{
     max-width: 800px;
     display: block;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px var(--shadow);
     transition: box-shadow 0.2s ease;
     flex-shrink: 1;
     min-height: 0;
@@ -967,7 +1007,7 @@ button a{
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, var(--btn-bg), transparent);
     transition: left 0.5s ease;
 }
 
@@ -985,7 +1025,7 @@ button a{
 /*catalogul*/
 
 .catalog {
-    background: linear-gradient(135deg, #fff7f0 0%, #fbeee6 100%);
+    background: linear-gradient(135deg, var(--bg-lighter) 0%, var(--bg-light) 100%);
     padding-top: 20px;
     padding-bottom: 50px;
     text-align: center;
@@ -1001,7 +1041,7 @@ button a{
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--prymary-color) 0%, transparent 70%);
     animation: elegantFloat 8s ease-in-out infinite;
     pointer-events: none;
 }
@@ -1013,7 +1053,7 @@ button a{
     letter-spacing: 2px;
     animation: bounceIn 1.2s ease-out;
     position: relative;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px var(--shadow);
 }
 
 .catalog h1::after {
@@ -1024,7 +1064,7 @@ button a{
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), #ffd700, var(--primary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--prymary-color2), var(--primary-color));
     animation: shimmer 2s ease-in-out infinite;
     border-radius: 2px;
 }
@@ -1045,7 +1085,7 @@ button a{
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, #fff7f0 0%, transparent 20%, transparent 80%, #fff7f0 100%);
+    background: linear-gradient(90deg, var(--bg-lighter) 0%, transparent 20%, transparent 80%, var(--bg-lighter) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -1078,14 +1118,14 @@ button a{
     background: white;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px var(--shadow);
     overflow: visible;
 }
 
 
 
 .catalog .box:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow);
 }
 
 .img-container {
@@ -1135,7 +1175,7 @@ button a{
     padding: 60px 5% 20px;
     height: 100vh;
     max-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-light) 0%, #fff7f0 100%);
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1157,7 +1197,7 @@ button a{
     max-width: 1200px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px var(--shadow);
     margin-bottom: 40px;
     flex-grow: 1;
     min-height: 0;
@@ -1172,7 +1212,7 @@ button a{
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(212, 175, 55, 0.1) 0%, transparent 50%, rgba(212, 175, 55, 0.1) 100%);
+    background: linear-gradient(45deg, var(--puo) 0%, transparent 50%, var(--puo) 100%);
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -1235,7 +1275,7 @@ button a{
 /*faq*/ 
 
 .faq{
-    background: linear-gradient(135deg, #fff7f0 0%, var(--bg-light) 100%);
+    background: linear-gradient(135deg, var(--bg-lighter) 0%, var(--bg-light) 100%);
     padding: 50px;
     position: relative;
     overflow: hidden;
@@ -1299,7 +1339,7 @@ button a{
     animation: fadeIn 0.5s ease-out;
     position: relative;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.7);
+    background: #ffffffb3;
     border-radius: 10px;
     padding: 20px;
     margin: 10px 0;

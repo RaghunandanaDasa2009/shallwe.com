@@ -1,0 +1,21 @@
+:root {
+    --primary-color: #7dd3fc;
+    --prymary-color2: #38bdf8;
+    --bg-light: #d3e6ff;
+    --bg-lighter: #ffffff;
+    --text-dark: #0f172a;
+    --shadow:rgba(15,23,42,0.15);
+    --btn-bg:rgba(199, 233, 255, 0.635);
+    --btn-hover: #bed6e6;
+    --zoom-glow: #7dd3fc66;
+    --abtb-bg: #dbeafe;
+    --puo: #7dd3fc1a;
+}
+
+nav {
+    background-color: rgba(15,23,42,0.6);
+}
+
+header .overlay {
+    background-color: rgba(15,23,42,0.55);
+}

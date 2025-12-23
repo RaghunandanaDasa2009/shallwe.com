@@ -1,5 +1,29 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    const seasonLink = document.getElementById("summerwinter");
+
+    const now = new Date();
+    const m = now.getMonth();
+    const d = now.getDate();
+
+    const isWinter =
+    (m === 10 && d >= 20) || m === 11 || m <= 1 || (m === 2 && d < 20);
+
+    seasonLink.href = isWinter ? "winter.css" : "summer.css";
+
+    if (isWinter){
+        document.getElementById('slide1').src = "img/winter fotos/winter 1.jpeg";
+        document.getElementById('slide2').src = "img/winter fotos/winter 2.jpeg";
+        document.getElementById('slide3').src = "img/winter fotos/winter 3.jpeg";
+        document.getElementById('slide4').src = "img/winter fotos/winter 4.jpeg";
+    }else{
+        document.getElementById('slide1').src = "img/summer fotos/summer 2.jpeg";
+        document.getElementById('slide2').src = "img/summer fotos/summer 3.jpeg";
+        document.getElementById('slide3').src = "img/summer fotos/summer 4.jpeg";
+        document.getElementById('slide4').src = "img/summer fotos/summer 5.jpeg";        
+    }
+
+
     const languageSwitcher = document.querySelector('.language-switcher');
     const currentLangText = document.getElementById('current-lang-text');
     const langDropdown = document.querySelector('.lang-dropdown');
@@ -91,6 +115,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Slideshow functionality
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
+        currentSlide = (currentSlide + 1) % slides.length;
+    }
+
+    // Initial slide display and start interval
+    if (slides.length > 0) {
+        showSlide();
+        setInterval(showSlide, 5000); // Change slide every 5 seconds
+    }
+
     // ===== COOL ANIMATIONS JAVASCRIPT =====
 
     // 1. Scroll-based animations using Intersection Observer
@@ -125,33 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
         observer.observe(el);
     });
-
-
-    /*
-    // 3. Floating sparkles effect
-    function createSparkle() {
-        const sparkle = document.createElement('div');
-        sparkle.innerHTML = '✨';
-        sparkle.style.position = 'fixed';
-        sparkle.style.left = Math.random() * window.innerWidth + 'px';
-        sparkle.style.top = window.innerHeight + 'px';
-        sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
-        sparkle.style.pointerEvents = 'none';
-        sparkle.style.zIndex = '1000';
-        sparkle.style.animation = 'floatUp 4s linear forwards';
-        sparkle.style.opacity = Math.random() * 0.8 + 0.2;
-        
-        document.body.appendChild(sparkle);
-        
-        setTimeout(() => {
-            sparkle.remove();
-        }, 4000);
-    }*/
-
-    // Create sparkles periodically
-    setInterval(createSparkle, 3000);
-
-
 
     // 5. Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -217,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         gradientAngle += 1;
         document.documentElement.style.setProperty('--dynamic-gradient', 
-            `linear-gradient(${gradientAngle}deg, #fbeee6, #fff7f0)`);
+            `linear-gradient(${gradientAngle}deg, var(--bg-light), var(--bg-lighter))`);
     }, 100);
 
     // 9. Loading animation
