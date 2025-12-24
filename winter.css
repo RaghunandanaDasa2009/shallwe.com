@@ -1,8 +1,8 @@
-:root {
-    --primary-color: #7dd3fc;
-    --prymary-color2: #38bdf8;
-    --bg-light: #d3e6ff;
-    --bg-lighter: #ffffff;
+/*:root {
+    --primary-color: #48acdb;
+    --prymary-color2: #32c2ff;
+    --bg-light: #cadffd;
+    --bg-lighter: #d5fbff;
     --text-dark: #0f172a;
     --shadow:rgba(15,23,42,0.15);
     --btn-bg:rgba(199, 233, 255, 0.635);
@@ -10,6 +10,20 @@
     --zoom-glow: #7dd3fc66;
     --abtb-bg: #dbeafe;
     --puo: #7dd3fc1a;
+}*/
+
+:root {
+    --primary-color: #1e90ff;
+    --prymary-color2: #4dd0e1;
+    --bg-light: #d2f0fd;
+    --bg-lighter: #f0fbff;
+    --text-dark: #0c1a2b;
+    --shadow: rgba(12,26,43,0.15);
+    --btn-bg: rgba(30,144,255,0.2);
+    --btn-hover: #a0d4ff;
+    --zoom-glow: rgba(77,208,225,0.4);
+    --abtb-bg: #d0f0ff;
+    --puo: rgba(77,208,225,0.1);
 }
 
 nav {
