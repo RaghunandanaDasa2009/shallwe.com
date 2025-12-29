@@ -1122,6 +1122,12 @@ button a{
     overflow: visible;
 }
 
+.catalog .box a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 /*.catalog .box:hover {

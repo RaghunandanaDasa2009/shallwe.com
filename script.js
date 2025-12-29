@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isWinter =
     (m === 10 && d >= 20) || m === 11 || m <= 1 || (m === 2 && d < 20);
 
+
     seasonLink.href = isWinter ? "winter.css" : "summer.css";
 
     if (isWinter){
