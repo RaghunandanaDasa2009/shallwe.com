@@ -257,14 +257,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('touch-device');
         
         // Add touch feedback
-        document.querySelectorAll('.catalog .box, .gallery img, .abtb div').forEach(el => {
-            el.addEventListener('touchstart', () => {
-                el.style.transform = 'scale(0.95)';
-            });
-            
-            el.addEventListener('touchend', () => {
-                el.style.transform = 'scale(1)';
-            });
-        });
+        // document.querySelectorAll('.catalog .box, .gallery img, .abtb div').forEach(el => {
+        //     el.addEventListener('touchstart', () => {
+        //         el.style.transform = 'scale(0.95)';
+        //     });
+        //     
+        //     el.addEventListener('touchend', () => {
+        //         el.style.transform = 'scale(1)';
+        //     });
+        // });
     }
 });
