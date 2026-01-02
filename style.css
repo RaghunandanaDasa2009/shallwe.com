@@ -1473,6 +1473,21 @@ footer p b{
         display: table;
         clear: both;
     }
+
+    /* Catalog box adjustments for mobile */
+    .catalog .box {
+        height: 250px;
+        padding: 15px;
+    }
+
+    .img-container {
+        width: 150px;
+        height: 180px;
+    }
+
+    .catalog .box h3 {
+        font-size: 1.3em;
+    }
 }
 
 /* Landscape Orientation Optimizations for Mobile Devices */
