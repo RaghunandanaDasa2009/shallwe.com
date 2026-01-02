@@ -1474,3 +1474,229 @@ footer p b{
         clear: both;
     }
 }
+
+/* Landscape Orientation Optimizations for Mobile Devices */
+@media (orientation: landscape) and (max-height: 500px) {
+    /* Header adjustments for landscape */
+    header {
+        height: 100vh; /* Full height in landscape */
+        max-height: 100vh;
+    }
+
+    header .overlay h2 {
+        font-size: 2.5em; /* Smaller title */
+        margin-bottom: 10px;
+    }
+
+    header .overlay h5 {
+        font-size: 1em; /* Smaller subtitle */
+        letter-spacing: 2px;
+    }
+
+    /* Navigation adjustments */
+    nav {
+        padding: 10px 20px; /* Reduce padding */
+    }
+
+    nav .logo a {
+        font-size: 1.3em; /* Smaller logo */
+    }
+
+    /* Hamburger menu for landscape if needed */
+    .hamburger-menu {
+        display: flex; /* Ensure hamburger is visible in landscape */
+    }
+
+    nav .nav-links {
+        display: none; /* Hide desktop nav */
+    }
+
+    /* About the brand section */
+    .abtb {
+        padding: 3%; /* Reduce padding */
+        gap: 15px;
+    }
+
+    .abtb div {
+        padding: 15px; /* Reduce padding inside boxes */
+    }
+
+    .abtb div p {
+        font-size: 14px; /* Smaller text */
+    }
+
+    /* Gallery adjustments */
+    .gallery {
+        padding: 20px 5%; /* Reduce padding */
+        height: 100vh; /* Full height in landscape */
+    }
+
+    .gallery h1 {
+        font-size: 2em; /* Smaller title */
+        margin-bottom: 15px;
+    }
+
+    .gallery img {
+        max-height: 50vh; /* Limit image height */
+        object-fit: cover;
+    }
+
+    /* Catalog adjustments */
+    .catalog {
+        padding-top: 15px;
+        padding-bottom: 30px;
+        height: 100vh; /* Full height in landscape */
+    }
+
+    .catalog h1 {
+        font-size: 2.2em; /* Smaller title */
+        margin-bottom: 30px;
+    }
+
+    .catalog .box {
+        height: 250px; /* Smaller boxes */
+        padding: 15px;
+    }
+
+    .img-container {
+        width: 150px; /* Smaller images */
+        height: 180px;
+    }
+
+    .catalog .box h3 {
+        font-size: 1.3em; /* Smaller text */
+    }
+
+    /* Reduce margin for see catalog button */
+    .seecatalog {
+        margin-top: 0; /* No margin in landscape */
+    }
+
+    /* About designer adjustments */
+    .abtd {
+        padding: 40px 5%; /* Reduce padding */
+    }
+
+    .abtd img {
+        width: 50vw; /* Smaller logo */
+        max-width: 250px;
+    }
+
+    .abtd h1 {
+        font-size: 2em; /* Smaller title */
+    }
+
+    .abtd p {
+        font-size: 14px; /* Smaller text */
+    }
+
+    /* Place your order adjustments */
+    .puo {
+        padding: 30px 5% 15px; /* Reduce padding */
+        height: 100vh; /* Full height in landscape */
+        max-height: 100vh;
+    }
+
+    .puo div {
+        margin-bottom: 20px; /* Reduce margin */
+    }
+
+    /* FAQ adjustments */
+    .faq {
+        padding: 30px 20px; /* Reduce padding */
+    }
+
+    .faq h1 {
+        font-size: 2em; /* Smaller title */
+    }
+
+    .faq h3 {
+        font-size: 1.2em; /* Smaller headings */
+    }
+
+    .faq span {
+        font-size: 14px; /* Smaller text */
+        padding: 10px;
+    }
+}
+
+/* Specific for very small landscape heights (360px and below) */
+@media (orientation: landscape) and (max-height: 400px) {
+    header {
+        height: 100vh; /* Full height in landscape */
+        max-height: 100vh;
+    }
+
+    header .overlay h2 {
+        font-size: 2em;
+    }
+
+    header .overlay h5 {
+        font-size: 0.8em;
+        letter-spacing: 1px;
+    }
+
+    .catalog .box {
+        height: 200px;
+        padding: 10px;
+    }
+
+    .img-container {
+        width: 120px;
+        height: 150px;
+    }
+
+    .catalog .box h3 {
+        font-size: 1.1em;
+    }
+
+    .catalog {
+        height: 100vh; /* Full height in landscape */
+    }
+
+    /* Reduce margin for see catalog button */
+    .seecatalog {
+        margin-top: 0; /* No margin in landscape */
+    }
+
+    .gallery {
+        padding: 15px 5%;
+        height: 100vh; /* Full height in landscape */
+    }
+
+    .gallery img {
+        max-height: 40vh;
+    }
+
+    .puo {
+        height: 100vh; /* Full height in landscape */
+        max-height: 100vh;
+        padding: 20px 5% 10px;
+    }
+
+    .abtd {
+        padding: 30px 5%;
+    }
+
+    .abtd img {
+        width: 40vw;
+        max-width: 200px;
+    }
+
+    .faq {
+        padding: 20px 15px;
+    }
+
+    .faq h1 {
+        font-size: 1.8em;
+    }
+
+    .faq h3 {
+        font-size: 1.1em;
+    }
+
+    .faq span {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
