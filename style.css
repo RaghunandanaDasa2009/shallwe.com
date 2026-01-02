@@ -1554,13 +1554,13 @@ footer p b{
     }
 
     .catalog .box {
-        height: 250px; /* Smaller boxes */
+        height: 45vh; /* Smaller boxes for landscape */
         padding: 15px;
     }
 
     .img-container {
         width: 150px; /* Smaller images */
-        height: 180px;
+        height: 35vh; /* Adjust for new box height */
     }
 
     .catalog .box h3 {
@@ -1637,13 +1637,13 @@ footer p b{
     }
 
     .catalog .box {
-        height: 200px;
+        height: 45vh; /* Smaller boxes for landscape */
         padding: 10px;
     }
 
     .img-container {
         width: 120px;
-        height: 150px;
+        height: 25vh; /* Adjust for new box height */
     }
 
     .catalog .box h3 {
