@@ -2,6 +2,7 @@
   "en": {
     "title": "Shall We",
     "nav_home": "Home",
+    "puo_home_btn": "Back",
     "nav_gallery": "Gallery",
     "nav_catalog": "Catalog",
     "nav_about": "About",
@@ -60,6 +61,7 @@
   "de": {
     "title": "Shall We",
     "nav_home": "Startseite",
+    "puo_home_btn": "Zurück",
     "nav_gallery": "Galerie",
     "nav_catalog": "Katalog",
     "nav_about": "Über uns",
@@ -118,6 +120,7 @@
   "ru": {
     "title": "Shall We",
     "nav_home": "Главная",
+    "puo_home_btn": "Назад",
     "nav_gallery": "Галерея",
     "nav_catalog": "Каталог",
     "nav_about": "О нас",
@@ -176,6 +179,7 @@
   "fr": {
     "title": "Shall We",
     "nav_home": "Accueil",
+    "puo_home_btn": "Retour",
     "nav_gallery": "Galerie",
     "nav_catalog": "Catalogue",
     "nav_about": "À propos",
@@ -234,6 +238,7 @@
   "es": {
     "title": "Shall We",
     "nav_home": "Inicio",
+    "puo_home_btn": "Atrás",
     "nav_gallery": "Galería",
     "nav_catalog": "Catálogo",
     "nav_about": "Sobre nosotros",
@@ -292,6 +297,7 @@
   "it": {
     "title": "Shall We",
     "nav_home": "Home",
+    "puo_home_btn": "Indietro",
     "nav_gallery": "Galleria",
     "nav_catalog": "Catalogo",
     "nav_about": "Chi siamo",
